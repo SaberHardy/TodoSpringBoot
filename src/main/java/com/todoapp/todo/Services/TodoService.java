@@ -18,18 +18,18 @@ public class TodoService {
     }
 
     public TodoModel getTodoById(Long id) {
-        return todoRepository.findById(id).orElse(null);
+        return todoRepository.findById(id).orElse(new TodoModel());
     }
 
     public void saveTodo(TodoModel todo) {
         todoRepository.save(todo);
     }
 
-    public void updateTodo(TodoModel todo) {
-        todoRepository.save(todo);
-    }
+//    public void updateTodo(TodoModel todo) {
+//        todoRepository.save(todo);
+//    }
 
-    public void deleteTodo(Long id) {
+    public void deleteTodoById(Long id) {
         todoRepository.deleteById(id);
     }
 }
