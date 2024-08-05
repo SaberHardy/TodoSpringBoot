@@ -4,11 +4,8 @@ import com.todoapp.todo.Services.TodoService;
 import com.todoapp.todo.models.TodoModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TodoController {
@@ -63,6 +60,12 @@ public class TodoController {
     @GetMapping("/delete/{id}")
     public String deleteTodo(@PathVariable Long id) {
         todoService.deleteTodoById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/deleteByTitle")
+    public String deleteTodoByTitle(@RequestParam String title) {
+        todoService.deleteTodoByTitle(title);
         return "redirect:/";
     }
 }
