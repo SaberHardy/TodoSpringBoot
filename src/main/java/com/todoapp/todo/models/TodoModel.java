@@ -20,7 +20,7 @@ public class TodoModel {
     private String title;
     private String description;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
-    private String createdDate;
+    private String dueDate;
     private boolean completed;
 
     @Override
@@ -29,7 +29,7 @@ public class TodoModel {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", createdDate='" + createdDate + '\'' +
+                ", dueDate='" + dueDate + '\'' +
                 ", completed=" + completed +
                 '}';
     }
