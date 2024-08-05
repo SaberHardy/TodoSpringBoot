@@ -16,4 +16,20 @@ public class TodoService {
     public List<TodoModel> getAllTodos() {
         return todoRepository.findAll();
     }
+
+    public TodoModel getTodoById(Long id) {
+        return todoRepository.findById(id).orElse(null);
+    }
+
+    public void saveTodo(TodoModel todo) {
+        todoRepository.save(todo);
+    }
+
+    public void updateTodo(TodoModel todo) {
+        todoRepository.save(todo);
+    }
+
+    public void deleteTodo(Long id) {
+        todoRepository.deleteById(id);
+    }
 }
