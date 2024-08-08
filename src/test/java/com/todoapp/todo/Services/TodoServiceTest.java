@@ -1,6 +1,7 @@
 package com.todoapp.todo.Services;
 
 import com.todoapp.todo.Repositories.TodoRepository;
+import com.todoapp.todo.models.TodoModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,5 +43,12 @@ class TodoServiceTest {
         todoService.getTodoById(1L);
 
         Mockito.verify(todoRepository, Mockito.times(1)).findById(1L);
+    }
+
+    @Test
+    void saveTodo() {
+        todoService.saveTodo(new TodoModel());
+
+        Mockito.verify(todoRepository, Mockito.times(1)).save(Mockito.any());
     }
 }
