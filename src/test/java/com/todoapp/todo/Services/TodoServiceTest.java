@@ -36,4 +36,11 @@ class TodoServiceTest {
 
         Mockito.verify(todoRepository, Mockito.times(1)).findAll();
     }
+
+    @Test
+    void getTodoById() {
+        todoService.getTodoById(1L);
+
+        Mockito.verify(todoRepository, Mockito.times(1)).findById(1L);
+    }
 }
