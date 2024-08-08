@@ -23,6 +23,9 @@ public class TodoModel {
     private String dueDate;
     private boolean completed;
 
+    public TodoModel(String test, String someDescription, String s, boolean b) {
+    }
+
     @Override
     public String toString() {
         return "TodoModel{" +

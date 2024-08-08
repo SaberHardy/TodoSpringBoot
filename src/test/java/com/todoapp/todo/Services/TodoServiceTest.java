@@ -47,8 +47,24 @@ class TodoServiceTest {
 
     @Test
     void saveTodo() {
+        //  TodoModel todoModel = new TodoModel("test", "some description", "01-01-2022", false);
         todoService.saveTodo(new TodoModel());
 
         Mockito.verify(todoRepository, Mockito.times(1)).save(Mockito.any());
     }
+
+    @Test
+    void deleteTodoById() {
+        todoService.deleteTodoById(1L);
+
+        Mockito.verify(todoRepository, Mockito.times(1)).deleteById(1L);
+    }
+
+    @Test
+    void deleteTodoByTitle() {
+        todoService.deleteTodoByTitle("test to delete");
+
+        Mockito.verify(todoRepository, Mockito.times(1)).deleteByTitle("test to delete");
+    }
+
 }
