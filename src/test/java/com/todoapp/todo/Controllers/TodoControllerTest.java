@@ -46,7 +46,14 @@ class TodoControllerTest {
     }
 
     @Test
-    void add() {
+    void testAddModel() throws Exception {
+        String url = "/add";
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get(url)
+                .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+
     }
 
     @Test
